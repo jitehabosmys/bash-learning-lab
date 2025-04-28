@@ -16,3 +16,6 @@ pip-delete-this-directory.txt
 
 # 版本管理工具
 .python-version
+
+# 练习时生成的文件
+*.txt
