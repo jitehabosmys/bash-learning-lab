@@ -25,4 +25,15 @@
 使用 `pwd`, `ls`, `mkdir`, `cd`, `history` 命令
 
 ## 验证
-完成后运行 `./check_basics.sh` 检查你的结果 
+完成后运行 `./check_basics.sh` 检查你的结果
+
+## 练习答案
+```bash
+pwd
+ls
+mkdir test_dir
+cd test_dir
+pwd
+cd ..
+history
+``` 

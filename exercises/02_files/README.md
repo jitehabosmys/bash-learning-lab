@@ -31,4 +31,18 @@ Learning file operations
 - `rm` - 删除文件或目录 (使用 `-r` 选项删除目录)
 
 ## 验证
-完成后运行 `./check_files.sh` 检查你的结果 
+完成后运行 `./check_files.sh` 检查你的结果
+
+## 练习答案
+```bash
+touch test_file.txt
+echo "Hello, Bash!" > test_file.txt
+cat test_file.txt
+echo "Learning file operations" >> test_file.txt
+cat test_file.txt
+mkdir backup
+cp test_file.txt backup/test_file_backup.txt
+mv test_file.txt renamed_file.txt
+rm -r backup
+rm renamed_file.txt
+``` 

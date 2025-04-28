@@ -46,4 +46,70 @@
 - 日志文件位置也可能因发行版而异
 
 ## 验证
-完成后运行 `./check_system.sh` 检查你的结果 
+完成后运行 `./check_system.sh` 检查你的结果
+
+## 练习答案
+```bash
+# 1. 用户和组管理
+# 创建新用户
+sudo useradd testuser
+# 设置密码
+sudo passwd testuser
+# 创建新组
+sudo groupadd testgroup
+# 将用户添加到组
+sudo usermod -aG testgroup testuser
+# 查看用户信息
+grep testuser /etc/passwd
+# 查看组信息
+grep testgroup /etc/group
+# 删除用户和组
+sudo userdel testuser
+sudo groupdel testgroup
+
+# 2. 进程管理
+# 启动后台进程
+sleep 300 &
+# 查找进程PID
+ps aux | grep "sleep 300"
+# 终止进程(假设PID是1234)
+kill 1234
+# 启动进程并暂停
+sleep 200
+# 按Ctrl+Z后
+bg
+# 查看后台作业
+jobs
+# 将作业带到前台
+fg
+# 然后按Ctrl+C终止
+
+# 3. 系统监控
+# 查看内存使用情况
+free -h
+# 运行top命令10秒
+top -n 1
+# 使用vmstat采样
+vmstat 2 5
+# 查看磁盘空间
+df -h
+
+# 4. 系统服务
+# 查看活动服务
+systemctl list-units --type=service
+# 查看SSH服务状态
+systemctl status sshd
+# 检查SSH是否自启动
+systemctl is-enabled sshd
+# 重启SSH服务(需要root权限)
+sudo systemctl restart sshd
+
+# 5. 系统日志分析
+# 查看系统日志
+tail -n 20 /var/log/syslog
+# 或者
+tail -n 20 /var/log/messages
+# 查看内核日志
+dmesg
+# 使用journalctl
+journalctl -n 50 
